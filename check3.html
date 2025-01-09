@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUYh9nXkynHT1cyr5C8SS79UYM8x362jdfphbg5E_EyY4VMAsMJ0FGuChy5qkCbpHi35I&usqp=CAU');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        label input[type="radio"] {
+  margin-left:5px; /* Adjust spacing as needed */
+}
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+        header {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 20px;
+}
+nav {
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: teal;
+  text-decoration: none;
+}
+
+    </style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <style>
+        /* Your existing styles remain unchanged */
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var dob = document.getElementById('dob').value;
+
+            // Validation for name (should not contain numbers)
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                alert('Please enter a valid name without numbers.');
+                return false;
+            }
+
+            // Validation for phone number (should contain only digits)
+             if (!/^\d{10}$/.test(phone)) {
+                 alert('Please enter a valid phone number with exactly 10 digits.');
+                 return false;
+            }
+
+              // Validation for phone number (should contain only 10 digits)
+              if (!/^\d{10}$/.test(phone)) {
+                  alert('Please enter a valid phone number with exactly 10 digits.');
+                  return false;
+            }
+
+            // Validation for date of birth (should be at least 18 years ago)
+            var currentDate = new Date();
+            var selectedDate = new Date(dob);
+            var eighteenYearsAgo = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+
+            if (selectedDate >= eighteenYearsAgo) {
+                alert('You should be 18years old');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+    
+</head>
+<body>
+  <header>
+
+    <nav>
+      <ul>
+        <li><a href="check1.html">Log Out</a></li>
+      </ul>
+    </nav>
+  </header> 
+<div class="container">
+    <h1>User Information</h1>
+    <form action="developer.php" method="post" onsubmit="return validateForm()">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <!-- Add your list of countries here -->
+            <option value="india">India</option>
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male </label><br>
+        <input type="radio" id="female" name="gender" value="female" required> 
+        <label for="female">Female </label>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" name="profession" required>
+    
+          <button type="submit">Submit</button>
+      </form>
+</div>
+</body>
+</html>

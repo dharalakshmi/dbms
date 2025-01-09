@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#investmentForm').submit(function(e) {
+                e.preventDefault();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: 'your-php-script.php', // Replace with the actual PHP script URL
+                    data: $('#investmentForm').serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            alert(response.message);
+                            // Update HTML content with the new investAmount based on P_no
+                            $('#investAmountDisplay' + response.selected_p_no).text(response.newInvestAmount);
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Your existing HTML content -->
+
+        <!-- Display the updated investAmount for P_no 1 -->
+        <p>Updated Invest Amount (P_no 51): <span id="investAmountDisplay1">0</span></p>
+
+        <!-- Display the updated investAmount for P_no 2 -->
+        <p>Updated Invest Amount (P_no 2): <span id="investAmountDisplay2">0</span></p>
+
+        <!-- Add more elements for other P_no values as needed -->
+    </div>
+</body>
+</html>

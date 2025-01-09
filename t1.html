@@ -1,0 +1,221 @@
+<html>
+<head >
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Raise Your Round With the Best Advertisement</title>
+
+<style>
+
+
+
+
+.image{
+margin-right:100px;
+margin-top:1px;
+}
+
+
+
+p {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-top: 0;
+}
+
+
+
+
+.image-container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-left:40px;
+}
+.total{
+display:flex;
+  flex-direction:row;
+  align-items:center;
+ margin-top: 40px;
+margin-left:180px;
+}
+
+img{
+width:300px;
+height:200px;
+ border-radius: 10px;
+}
+
+.image-info {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.image-info h3 {
+  margin-top: 0;
+}
+
+.image-info p {
+  margin-top: 0;
+}
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+
+
+header {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 20px;
+}
+nav {
+  text-align: right;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+}
+ a{
+  color: white;
+  text-decoration: none;
+}
+
+ul li{
+  display: inline-block;
+  margin-right: 30px;
+  margin-top:30px;
+}
+.heart-btn {
+      cursor: pointer;
+      color: #555;
+    }
+
+    .heart-btn:hover {
+      color: #e44d26;
+    }
+  .progress-bar {
+      width: 80%;
+      background-color: #eee;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar-inner {
+      height: 20px;
+      background-color: #e44d26;
+      transition: width 0.3s ease-in-out;
+    }
+.ended {
+      color: #888;
+      font-style: italic;
+    }
+
+</style>
+</head>
+<body>
+  <header>
+    
+    <nav>
+      <ul>
+        <li><a href="#">Start Investing</a></li>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Earn Bonus Shares</a></li>
+        <li><a href="image.html">Raise Capital</a></li>
+        <li><a href="login.php">Log In</a></li>
+        <li><a href="login.php">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header> 
+
+  
+    
+<div class="total">
+<div class="image-container">
+  <img src="https://www.startengine.com/blog/wp-content/uploads/2023/05/thumbnail-493749837.png" alt="Image">
+  <div class="image-info">
+    <div class="heart-btn" onclick="likeProject('environment-project')">&#10084;Like </div>
+    <h3>ReefKeeper Belize</h3>
+    <p>"Educating for Sustainability of the Belize Barrier Reef with Field Trips and Mangrove Restoration"</p>
+    <div class="progress-bar">
+        <div class="progress-bar-inner" id="environment-project-progress" style="width: 30%;"></div>
+      </div>
+      <p id="environment-status">30% funded</p>
+  </div>
+</div>
+
+
+<div class="image-container">
+  <img src="https://www.startengine.com/blog/wp-content/uploads/2023/05/Rectangle-2227.png " alt="Image">
+  <div class="image-info">
+    <h3>$9M Raised</h3>
+    <p> "I compared the different platforms that were unavailable, and I found that StartEngine was the most entrepreneur friendly."</p>
+  </div>
+</div>
+
+<div class="image-container">
+  <img src="https://www.startengine.com/blog/wp-content/uploads/2023/05/Rectangle-2227-1.png " alt="Image">
+  <div class="image-info">
+    <h3>$2M Raised</h3>
+    <p> "The most we had ever done [was] 64 barrels in a year...Now we're on track to do 300 barrels a year... And that's due to crowdfunding"</p>
+  </div>
+</div>
+</div>
+
+
+
+
+ <script>
+let environmentLikes = 0;
+    let environmentFunding = 30; // Initial funding percentage
+
+    function likeProject(projectId) {
+      environmentLikes++;
+      updateLikes(projectId, environmentLikes);
+    }
+
+    function updateLikes(projectId, likes) {
+      const likeBtn = document.querySelector(`#${projectId} .heart-btn`);
+      const progressInner = document.querySelector(`#${projectId}-progress`);
+      const statusText = document.querySelector(`#${projectId}-status`);
+
+      likeBtn.innerHTML = `&#10084; Liked (${likes})`;
+
+      // Simulate funding increase
+      environmentFunding += 5;
+      if (environmentFunding > 100) {
+        environmentFunding = 100;
+      }
+
+      progressInner.style.width = `${environmentFunding}%`;
+      statusText.textContent = `${environmentFunding}% funded`;
+
+      if (environmentFunding === 100) {
+        statusText.textContent = 'Project Ended';
+        statusText.classList.add('ended');
+        likeBtn.removeEventListener('click', likeProject);
+        likeBtn.style.cursor = 'not-allowed';
+      }
+    }
+
+  
+</script>
+
+</body>
+</html>
+
